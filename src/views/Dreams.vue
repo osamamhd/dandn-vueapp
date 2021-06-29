@@ -3,7 +3,7 @@
   <story-box
     v-for="story in dreamsStories"
     :key="story.id"
-    :story="story" />
+    :story="story"/>
   
 </template>
 
@@ -46,7 +46,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>
