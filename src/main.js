@@ -5,7 +5,7 @@ import router from './router'
 import '../public/styles.css'
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://dreamsandnightmares.pythonanywhere.com/'
+axios.defaults.baseURL = 'https://dreamsandnightmares.pythonanywhere.com/'
 
 
 createApp(App).use(router).mount('#app')
