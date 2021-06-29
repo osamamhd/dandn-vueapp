@@ -1,5 +1,6 @@
 <template>
-  <div id="nav" class="bg-gray-800 fixed w-full flex justify-around py-2">
+<div class="py-2 bg-gray-800 fixed w-full">
+  <div id="nav" class="w-full md:w-4/5 lg:w-1/2 flex justify-around mx-auto">
     <div>
       <router-link to="/">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-auto" viewBox="0 0 20 20" fill="currentColor">
@@ -53,6 +54,7 @@
     </div>
 
   </div>
+</div>
 
   <div class="pt-20">
     <router-view/>
@@ -64,7 +66,6 @@
   font-family: serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 
