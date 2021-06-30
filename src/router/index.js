@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import Dreams from '../views/Dreams.vue'
 import Nightmares from '../views/Nightmares.vue'
 import CreateStory from '../views/CreateStory.vue'
+import Story from '../views/Story.vue'
 
 const routes = [
   {
@@ -21,6 +22,12 @@ const routes = [
     path: '/nightmares',
     name: 'Nightmares',
     component: Nightmares
+  },
+
+  {
+    path: '/:story_slug',
+    name: 'Story',
+    component: Story
   },
 
   {
