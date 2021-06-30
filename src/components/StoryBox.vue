@@ -5,15 +5,16 @@
                 border-b-2" :class="story.type_of_story">
         <div class="flex justify-between border-b-2 font-semibold"
                     :class="story.type_of_story">
-            <p>{{story.title}}</p>
+            <router-link v-bind:to="story.get_absolute_url">{{story.title}} </router-link>
             <p>{{story.pub_date}}</p>
         </div>
 
         <div class="mt-4">
-            <p>{{story.body}}</p>
+            <p>{{text}}</p>
+
         </div>
 
-        <div class="flex justify-around grid grid-cols-3 gap-5 text-center mt-4">
+        <div class="flex justify-around grid grid-cols-5 gap-5 text-center mt-4">
             <div :id="story.type_of_story" class="col-span-1">
                 <button v-on:click="downVote" :id="story.id">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -22,7 +23,7 @@
                 </button>
             </div>
 
-            <div :id="story.type_of_story" class="col-span-1">
+            <div :id="story.type_of_story" class="col-span-2">
                 <p class="mt-1">{{points}} Points</p>
             </div>
 
@@ -32,6 +33,14 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11l7-7 7 7M5 19l7-7 7 7" />
                     </svg>
                 </button>
+            </div>
+
+            <div :id="story.type_of_story" class="col-span-1">
+                <router-link v-bind:to="story.get_absolute_url">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mt-1 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                    </svg>
+                </router-link>
             </div>
         </div>
     </div>
@@ -47,11 +56,16 @@ export default {
     props: {
         story: Object
     }, 
+
+    mounted() {
+        this.truncate()
+    },
     
     data() {
         return {
             points: this.story.points,
             id: this.story.id,
+            text: this.story.body
         }
     },
 
@@ -77,7 +91,16 @@ export default {
                     console.log(err)
                 })
         },
-    }
+
+        truncate(){
+            if (this.text.length >10){
+                return this.text.substring(0, 10) + '...';
+            } else {
+                return this.text;
+            }
+        }
+        
+    },
 
 }
 </script>
