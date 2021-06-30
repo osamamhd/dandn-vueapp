@@ -16,7 +16,8 @@ export default {
 
   data() {
     return {
-      dreamsStories: []
+      dreamsStories: [],
+
     }
   }, 
 
@@ -42,7 +43,8 @@ export default {
         .catch(err => {
           console.log(err)
         })
-    }
+    },
+
   }
 }
 </script>
