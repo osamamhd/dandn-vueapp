@@ -1,6 +1,6 @@
 <template>
 
-  <div class="w-full md:w-4/5 lg:w-1/2 mx-auto px-5 font-bold">
+  <div class="w-full md:w-4/5 lg:w-1/2 mx-auto px-5 font-bold py-4">
 
     <form @submit.prevent="submitForm">
 
