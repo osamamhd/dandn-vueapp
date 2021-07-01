@@ -8,6 +8,7 @@
     "build-css": "tailwindcss build src/styles.css -o public/styles.css"
   },
   "dependencies": {
+    "autoprefixer": "^9.8.6",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "postcss": "^8.3.5",
