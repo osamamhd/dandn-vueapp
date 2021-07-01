@@ -6,11 +6,11 @@
         <div class="flex justify-between border-b-2 font-semibold"
                     :class="story.type_of_story">
             <router-link v-bind:to="story.get_absolute_url">{{story.title}} </router-link>
-            <p>{{story.pub_date}}</p>
+            <p>{{story.dop}}</p>
         </div>
 
         <div class="mt-4">
-            <p>{{text}}</p>
+            <p class="text-justify">{{story.truncateBody}}</p>
 
         </div>
 
@@ -57,15 +57,10 @@ export default {
         story: Object
     }, 
 
-    mounted() {
-        this.truncate()
-    },
-    
     data() {
         return {
             points: this.story.points,
             id: this.story.id,
-            text: this.story.body
         }
     },
 
@@ -91,14 +86,6 @@ export default {
                     console.log(err)
                 })
         },
-
-        truncate(){
-            if (this.text.length >10){
-                return this.text.substring(0, 10) + '...';
-            } else {
-                return this.text;
-            }
-        }
         
     },
 

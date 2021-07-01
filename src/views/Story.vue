@@ -4,14 +4,14 @@
         <div class="mx-auto w-11/12 md:w-4/5 lg:w-1/2 pt-4">
             <div class="flex justify-between border-b-2 font-semibold">
                 <p>{{ story.title }}</p>
-                <p>{{story.pub_date}}</p>
+                <p>{{story.dop}}</p>
             </div>
 
             <div class="mt-4">
                 <p>{{story.body}}</p>
             </div>
 
-            <div class="flex justify-around grid grid-cols-3 gap-5 text-center mt-4">
+            <div :class="story.type_of_story" class="flex justify-around grid grid-cols-3 gap-5 text-center mt-4">
             <div :id="story.type_of_story" class="col-span-1">
                 <button v-on:click="downVote" :id="story.id">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
