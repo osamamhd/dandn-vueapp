@@ -1,4 +1,7 @@
-# dandn-vueapp
+# Dreams and Nightmares
+```
+Thsis is the front-end repo
+Back-end repo:[here](https://github.com/osamamhd/dandn)
 
 ## Project setup
 ```
