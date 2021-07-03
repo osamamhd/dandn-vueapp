@@ -9,7 +9,7 @@
             <p>{{story.dop}}</p>
         </div>
 
-        <div class="mt-4">
+        <div class="mt-2 break-all">
             <p class="text-justify">{{story.truncateBody}}</p>
 
         </div>

@@ -1,14 +1,18 @@
 <template>
-
+    <div :class="story.type_of_story" v-show="isLoading" class="w-full py-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="animate-ping mx-auto h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
+        </svg>  
+    </div>
     <div class="h-screen" :class="story.type_of_story">
         <div class="mx-auto w-11/12 md:w-4/5 lg:w-1/2 pt-4">
-            <div class="flex justify-between border-b-2 font-semibold">
+            <div class="flex justify-between border-b-2 border-gray-500 font-semibold">
                 <p>{{ story.title }}</p>
                 <p>{{story.dop}}</p>
             </div>
 
-            <div class="mt-4">
-                <p>{{story.body}}</p>
+            <div class="break-all pt-2">
+                <span class="">{{story.body}}</span>
             </div>
 
             <div :class="story.type_of_story" class="flex justify-around grid grid-cols-3 gap-5 text-center mt-4">
@@ -47,6 +51,7 @@ export default {
     data() {
         return {
             story: {},
+            isLoading: true
         }
     }, 
 
@@ -64,6 +69,7 @@ export default {
                 .get(`stories/api/${story_slug}/`)
                 .then(response => {
                     this.story = response.data
+                    this.isLoading = false
 
                     document.title = 'D&&N | ' + this.story.title
 
